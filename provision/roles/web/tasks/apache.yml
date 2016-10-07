@@ -1,0 +1,8 @@
+---
+- name: be sure apache2 installed
+  apt:
+    name: apache2
+    force: yes
+    update_cache: yes
+  tags: apache
+

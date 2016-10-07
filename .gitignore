@@ -1,0 +1,7 @@
+*/**/*
+!default/
+!default/conf.yml
+!default/Vagrantfile
+!provision/
+!provision/**/*
+

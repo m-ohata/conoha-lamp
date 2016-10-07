@@ -1,0 +1,8 @@
+---
+- hosts: database
+  connection: local
+  become: yes
+  roles:
+    - common
+    - database
+

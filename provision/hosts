@@ -1,0 +1,9 @@
+[web]
+localhost              ansible_connection=local
+
+[db]
+localhost              ansible_connection=local
+
+[stand-alone]
+localhost              ansible_connection=local
+

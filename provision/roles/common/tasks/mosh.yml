@@ -1,0 +1,5 @@
+---
+- name: be sure installed mosh
+  apt: name=mosh
+  tags: mosh
+

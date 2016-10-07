@@ -1,0 +1,8 @@
+---
+- hosts: web
+  connection: local
+  become: yes
+  roles:
+    - common
+    - web
+

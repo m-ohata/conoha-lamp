@@ -1,0 +1,16 @@
+---
+- name: be sure git repository registed - 1
+  apt: name=software-properties-common
+  tags: git
+
+- name: be sure git repository registed - 2
+  apt_repository: repo=ppa:git-core/ppa
+  tags: git
+
+- name: be sure git is installed
+  apt:
+    name: git
+    force: yes
+    update_cache: yes
+  tags: git
+

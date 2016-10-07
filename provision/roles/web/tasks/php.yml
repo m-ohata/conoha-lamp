@@ -1,0 +1,12 @@
+---
+- name: be sure php(in LAMP) installed
+  apt:
+    name: "{{item}}"
+    force: yes
+    update_cache: yes
+  with_items:
+    - php
+    - php-mysql
+    - libapache2-mod-php
+  tags: php
+

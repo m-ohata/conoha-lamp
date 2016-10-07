@@ -1,0 +1,11 @@
+---
+- name: be sure fish repository setting
+  apt_repository: repo="ppa:fish-shell/release-2"
+  tags: fish
+
+- name: be sure fish is installed
+  apt:
+    name: fish
+    force: yes
+  tags: fish
+

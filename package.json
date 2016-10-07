@@ -1,0 +1,22 @@
+{
+  "name": "conoha-lamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "help": "cd default && vagrant openstack -h",
+    "image-list": "cd default && vagrant openstack image-list",
+    "flavor-list": "cd default && vagrant openstack flavor-list",
+    "network-list": "cd default && vagrant openstack network-list",
+    "subnet-list": "cd default && vagrant openstack subnet-list",
+    "volume-list": "cd default && vagrant openstack volume-list",
+    "reset": "cd default && vagrant openstack reset"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m-ohata/conoha-lamp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

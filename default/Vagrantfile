@@ -1,0 +1,50 @@
+# coding: utf-8
+
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box       = "conoha"
+  config.ssh.username = "root"
+  config.vm.provider :conoha do |conoha|
+    conoha.openstack_auth_url = 'https://identity.tyo1.conoha.io/v2.0'
+    conoha.region             = "tyo1"
+
+    # api token
+    conoha.username           = "gncu****"
+    conoha.password           = "********"
+    conoha.tenant_name        = "gnct****"
+
+    # machine infomation
+    conoha.metadata           = {
+      instance_name_tag: File::basename(Dir::pwd)
+    }
+    conoha.flavor             = "g-1gb"
+    conoha.image              = 'vmi-ubuntu-16.04-amd64'
+    conoha.admin_pass         = ""
+    conoha.security_groups    = [
+      "default",
+      "gncs-ipv4-all",
+      "gncs-ipv6-all"
+    ]
+    # conoha.keypair_name       = ""
+
+  end
+
+  # config.ssh.private_key_path = "~/.ssh/id_rsa"
+
+  # Vagrant gatling
+  #   http://qiita.com/ozw_sei/items/1be0d565fd966d8506c3
+  if Vagrant.has_plugin?("vagrant-gatling-rsync")
+    config.gatling.latency = 1.5
+    config.gatling.time_format = "%H:%M:%S"
+    config.gatling.rsync_on_startup = true
+  end
+
+  # provision
+  config.vm.synced_folder "../provision/", "/tmp/provision"
+  config.vm.provision :ansible_local do |ansible|
+    ansible.limit = "all"
+    ansible.playbook = "/tmp/provision/site.yml"
+    ansible.inventory_path = "/tmp/provision/hosts"
+  end
+end
+

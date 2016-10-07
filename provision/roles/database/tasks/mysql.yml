@@ -1,0 +1,8 @@
+---
+- name: be sure mysql installed
+  apt:
+    name: mysql-server
+    force: yes
+    update_cache: yes
+  tags: mysql
+
