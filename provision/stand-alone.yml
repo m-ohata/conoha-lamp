@@ -1,9 +1,0 @@
----
-- hosts: stand-alone
-  connection: local
-  become: yes
-  roles:
-    - common
-    - web
-    - database
-
